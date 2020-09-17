@@ -36,10 +36,17 @@ public class ProduitMockServiceImpl implements IProduitService {
         this.produits.remove(produit);
     }
 
-    @Override
+   /* @Override
     public void deleteProduit(String ref) {
         Produit produit = new Produit();
         produit.setRef(ref);
+        this.produits.remove(produit);
+    }*/
+
+    @Override
+    public void deleteProduit(Long id) {
+        Produit produit = new Produit();
+        produit.setId(id);
         this.produits.remove(produit);
     }
 }
