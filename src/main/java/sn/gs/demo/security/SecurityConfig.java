@@ -18,10 +18,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
     protected void configure(HttpSecurity http) throws Exception
     {
-        //L'utilisateur ki a le role USER n p acceder qu'aux ressource definie ds l'API et user ki a le role
+        //L'utilisateur ki a le role USER a acces seulement aux /api/quelquechose et ceci est definie dans le controlleur
         //ADMIN p acceder a tous les ressources.
-        http.httpBasic().and().authorizeRequests().antMatchers("/api/**")
-                .hasRole("USER").antMatchers("/**")
+        http.httpBasic().and().authorizeRequests()
+                .antMatchers("/api/**")
+                .hasRole("USER")
+                .antMatchers("/**")
                 .hasRole("ADMIN").and()
                 .csrf().disable().headers().frameOptions().disable();
     }

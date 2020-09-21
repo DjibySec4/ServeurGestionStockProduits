@@ -3,8 +3,8 @@ package sn.gs.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import sn.gs.demo.dao.ProduitRepository;
-import sn.gs.demo.entities.Produit;
+import sn.gs.demo.dao.UserRepository;
+import sn.gs.demo.entities.User;
 
 import java.util.List;
 
@@ -12,31 +12,31 @@ import java.util.List;
 //controller. C prkw on a ajouter @Primary pr dire k ce service sera prooritaire si on appelle une meth du repository dans le controller
 @Service
 @Primary
-public class ProduitService implements ICrudService<Produit, Long> {
+public class UserService implements ICrudService<User, Long> {
 
     @Autowired
-    private ProduitRepository produitRepositiry;
+    private UserRepository userRepository;
 
     @Override
-    public List<Produit> getAll() {
-        return this.produitRepositiry.findAll();
+    public List<User> getAll() {
+        return this.userRepository.findAll();
     }
 
     @Override
-    public void add(Produit produit) {
-        produitRepositiry.save(produit);
+    public void add(User user) {
+        userRepository.save(user);
     }
 
     @Override
-    public void update(Produit produit) {
-        produitRepositiry.save(produit);
+    public void update(User user) {
+        userRepository.save(user);
     }
 
     @Override
     public void delete(Long id) {
-        Produit produit = new Produit();
-        produit.setId(id);
-        produitRepositiry.delete(produit);
+        User user = new User();
+        user.setId(id);
+        userRepository.delete(user);
 
     }
 }

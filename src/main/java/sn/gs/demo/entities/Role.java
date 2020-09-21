@@ -1,6 +1,8 @@
 package sn.gs.demo.entities;
 
 
+import sn.gs.demo.util.RoleEnum;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -22,8 +24,9 @@ public class Role {
         super();
     }
 
-    public Role(String name) {
-        this.name = name;
+    public Role(RoleEnum role) {
+        super();
+        this.name = role.getName();
     }
 
     public Long getId() {

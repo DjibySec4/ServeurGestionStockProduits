@@ -8,7 +8,7 @@ import java.util.List;
 
 //ce @Service c pour que cette classe soit injectable dans les controller afin d'appeler ses methodes.
 @Service
-public class ProduitMockServiceImpl implements IProduitService {
+public class ProduitMockServiceImpl implements ICrudService<Produit, Long> {
 
     private List<Produit> produits;
 
@@ -20,17 +20,17 @@ public class ProduitMockServiceImpl implements IProduitService {
     }
 
     @Override
-    public List<Produit> getProduits() {
+    public List<Produit> getAll() {
         return produits;
     }
 
     @Override
-    public void addProduit(Produit produit) {
+    public void add(Produit produit) {
         this.produits.add(produit);
     }
 
     @Override
-    public void updateProduit(Produit produit) {
+    public void update(Produit produit) {
         //On remplace le produit par un autre
         this.produits.add(produit);
         this.produits.remove(produit);
@@ -44,7 +44,7 @@ public class ProduitMockServiceImpl implements IProduitService {
     }*/
 
     @Override
-    public void deleteProduit(Long id) {
+    public void delete(Long id) {
         Produit produit = new Produit();
         produit.setId(id);
         this.produits.remove(produit);

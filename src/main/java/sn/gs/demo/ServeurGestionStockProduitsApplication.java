@@ -9,6 +9,7 @@ import sn.gs.demo.dao.UserRepository;
 import sn.gs.demo.entities.Produit;
 import sn.gs.demo.entities.Role;
 import sn.gs.demo.entities.User;
+import sn.gs.demo.util.RoleEnum;
 
 import java.util.Arrays;
 
@@ -27,8 +28,8 @@ public class ServeurGestionStockProduitsApplication {
         RoleRepository roleRepository = ctx.getBean(RoleRepository.class);
 
         //On creer les 2 roles de notre app
-        Role roleUser = new Role("ROLE_USER");
-        Role roleAdmin = new Role("ROLE_ADMIN");
+        Role roleUser = new Role(RoleEnum.ROLE_USER);
+        Role roleAdmin = new Role(RoleEnum.ROLE_ADMIN);
 
         roleRepository.save(roleUser);
         roleRepository.save(roleAdmin);

@@ -1,41 +1,13 @@
 package sn.gs.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import sn.gs.demo.entities.Produit;
-import sn.gs.demo.service.IProduitService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/produit")
 @CrossOrigin
-public class ProduitController {
+public class ProduitController extends  CrudController<Produit, Long>{
 
-    @Autowired
-    private IProduitService produitService;
-
-    @GetMapping
-    public List<Produit> getProduits()
-    {
-        return this.produitService.getProduits();
-    }
-
-    @PostMapping
-    public void addProduit(@RequestBody Produit produit)
-    {
-        this.produitService.addProduit(produit);
-    }
-
-    @PutMapping
-    public void updateProduit(@RequestBody Produit produit)
-    {
-        this.produitService.updateProduit(produit);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteProduit(@PathVariable Long id)
-    {
-        this.produitService.deleteProduit(id);
-    }
 }
